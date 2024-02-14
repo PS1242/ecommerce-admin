@@ -22,6 +22,8 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import AlertModal from "@/components/modals/AlertModal";
+import { ApiAlert } from "@/components/ui/api-alert";
+import { useOrigin } from "@/hooks/useOrigin";
 
 interface SettingsFormProps {
   initialData: Store;
@@ -39,6 +41,8 @@ export default function SettingsForm(props: SettingsFormProps) {
 
   const params = useParams();
   const router = useRouter();
+
+  const origin = useOrigin();
 
   const form = useForm<SettingsFormValues>({
     resolver: zodResolver(formSchema),
@@ -122,6 +126,12 @@ export default function SettingsForm(props: SettingsFormProps) {
             Save changes
           </Button>
         </form>
+        <Separator />
+        <ApiAlert
+          title="NEXT_PUBLIC_API_URL"
+          description={`${origin}/api/${params.storeId}`}
+          variant="public"
+        />
       </Form>
     </>
   );
