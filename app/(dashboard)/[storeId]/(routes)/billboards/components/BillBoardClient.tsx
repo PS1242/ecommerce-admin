@@ -5,15 +5,21 @@ import Heading from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { PlusIcon } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
+import { BillboardColumns, columns } from "./columns";
+import { DataTable } from "@/components/ui/data-table";
 
-export default function BillBoardClient() {
+type BillBoardClientProps = {
+  billboards: BillboardColumns[];
+};
+
+export default function BillBoardClient(props: BillBoardClientProps) {
   const params = useParams();
   const router = useRouter();
   return (
     <>
       <div className="flex items-center justify-between">
         <Heading
-          title="Billboards(0)"
+          title={`Billboards (${props?.billboards?.length})`}
           description="Manage billboard for your store"
         />
         <Button
@@ -24,6 +30,7 @@ export default function BillBoardClient() {
         </Button>
       </div>
       <Separator />
+      <DataTable searchKey="label" columns={columns} data={props?.billboards} />
     </>
   );
 }
