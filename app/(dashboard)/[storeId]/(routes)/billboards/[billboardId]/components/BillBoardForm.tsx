@@ -22,7 +22,6 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useParams, useRouter } from "next/navigation";
 import AlertModal from "@/components/modals/AlertModal";
-import { useOrigin } from "@/hooks/useOrigin";
 import ImageUpload from "@/components/ui/image-upload";
 
 interface BillBoardFormProps {
@@ -42,7 +41,6 @@ export default function BillBoardForm(props: BillBoardFormProps) {
 
   const params = useParams();
   const router = useRouter();
-  const origin = useOrigin();
 
   const title = props?.initialData ? "Edit billboard" : "Create billboard";
   const description = props?.initialData
