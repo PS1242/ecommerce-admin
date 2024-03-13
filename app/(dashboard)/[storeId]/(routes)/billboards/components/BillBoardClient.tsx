@@ -5,11 +5,11 @@ import Heading from "@/components/ui/heading";
 import { Separator } from "@/components/ui/separator";
 import { PlusIcon } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import { BillboardColumns, columns } from "./columns";
+import { BillboardColumn, columns } from "./columns";
 import { DataTable } from "@/components/ui/data-table";
 
 type BillBoardClientProps = {
-  billboards: BillboardColumns[];
+  billboards: BillboardColumn[];
 };
 
 export default function BillBoardClient(props: BillBoardClientProps) {
