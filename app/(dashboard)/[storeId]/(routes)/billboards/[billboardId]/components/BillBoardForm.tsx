@@ -88,7 +88,7 @@ export default function BillBoardForm(props: BillBoardFormProps) {
         `/api/${params.storeId}/billboards/${params.billboardId}`
       );
       router.refresh();
-      router.push("/");
+      router.push(`/${params.storeId}/billboards`);
       toast.success("Billboard deleted!");
     } catch (error) {
       toast.error("Make sure you remove all categories using this billboard");
