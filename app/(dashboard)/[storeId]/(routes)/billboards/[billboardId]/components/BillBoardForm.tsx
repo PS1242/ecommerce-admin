@@ -166,7 +166,6 @@ export default function BillBoardForm(props: BillBoardFormProps) {
             {action}
           </Button>
         </form>
-        <Separator />
       </Form>
     </>
   );
